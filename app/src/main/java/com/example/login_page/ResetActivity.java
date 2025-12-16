@@ -33,6 +33,15 @@ public class ResetActivity extends AppCompatActivity {
 
                 String e = email.getText().toString();
                 String p = newPassword.getText().toString();
+                if (e.isEmpty()) {
+                    email.setError("Email required");
+                    return;
+                }
+
+                if (p.isEmpty()) {
+                    newPassword.setError("New password required");
+                    return;
+                }
 
                 if (db.checkUserByEmail(e)) {
                     boolean updated = db.updatePasswordByEmail(e, p);

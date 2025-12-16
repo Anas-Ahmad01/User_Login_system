@@ -43,6 +43,23 @@ public class MainActivity extends AppCompatActivity {
                 String p = password.getText().toString();
                 String d = dob.getText().toString();
 
+                if (e.isEmpty()) {
+                    email.setError("Email required");
+                    return;
+                }
+                if (u.isEmpty()) {
+                    username.setError("Username required");
+                    return;
+                }
+                if (p.isEmpty()) {
+                    password.setError("Password required");
+                    return;
+                }
+                if (d.isEmpty()) {
+                    dob.setError("Date of birth required");
+                    return;
+                }
+
                 long id = db.addUser(e, u, p, d);
 
                 if (id > 0) {

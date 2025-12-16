@@ -38,6 +38,15 @@ public class LoginActivity extends AppCompatActivity {
 
                 String u = username.getText().toString();
                 String p = password.getText().toString();
+                if (u.isEmpty()) {
+                    username.setError("Username required");
+                    return;
+                }
+
+                if (p.isEmpty()) {
+                    password.setError("Password required");
+                    return;
+                }
 
                 if (db.checkLogin(u, p)) {
                     isLoggedIn = true;
